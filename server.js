@@ -5,9 +5,9 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 app.use(
-	bodyParser.urlencoded({
-		extended: false
-	})
+    bodyParser.urlencoded({
+        extended: false
+    })
 );
 
 const port = process.env.PORT || 5000;
