@@ -163,7 +163,7 @@ app.put("/person/:socialSecurityNumber", function (req, res) {
                     people[i] = person;
                 }
             }
-            res.statusCode = 201;
+            res.statusCode = 200;
             res.json(person);
         }
 
