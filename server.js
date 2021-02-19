@@ -182,7 +182,7 @@ app.delete('/person/:socialSecurityNumber', function (req, res) {
     try {
         for (i = 0; i < people.length; i++) {
             if (people[i].socialSecurityNumber === req.params.socialSecurityNumber) {
-                delete people[i];
+                people.splice(i, 1);
             }
         }
         res.statusCode = 200;
