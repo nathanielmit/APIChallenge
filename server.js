@@ -60,16 +60,16 @@ var people = [];
 // GET /person
 // Return all of the person objects in the running app
 app.get("/person", function (req, res) {
-	try {
+    try {
         res.statusCode = 200;
-	    res.json(people)
-	} catch (error) {
-		console.log(error);
-		res.statusCode = 500;
-		res.send({	
-			message: "Server Error"
-		});
-	}
+        res.json(people)
+    } catch (error) {
+        console.log(error);
+        res.statusCode = 500;
+        res.send({    
+            message: "Server Error"
+        });
+    }
 });
 
 // POST /person
@@ -78,7 +78,7 @@ app.get("/person", function (req, res) {
 // Don't allow missing or badly formatted fields (ie DOB and email address should be correctly formatted)
 // No duplicate persons (with same SSN)
 app.post("/person", function (req, res) {
-	try {
+    try {
         var person = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -102,20 +102,20 @@ app.post("/person", function (req, res) {
             res.statusCode = 201;
             res.json(person);
         }
-	} catch (err) {
+    } catch (err) {
         console.log(err);
-		res.statusCode = 500;
-		res.send({
-			message: "Server Error"
-		});
-		return;
-	}
+        res.statusCode = 500;
+        res.send({
+            message: "Server Error"
+        });
+        return;
+    }
 });
 
 // GET /person/:socialSecurityNumber
 // Return the single person in the running app (if a person with that SSN exists)
 app.get("/person/:socialSecurityNumber", function (req, res) {
-	try {
+    try {
         for (i = 0; i < people.length; i++) {
             if (people[i].socialSecurityNumber === req.params.socialSecurityNumber) {
                 res.statusCode = 200;
@@ -127,19 +127,19 @@ app.get("/person/:socialSecurityNumber", function (req, res) {
         res.send({
             message: "Social security number not found"
         });
-	} catch (error) {
-		console.log(error);
-		res.statusCode = 500;
-		res.send({	
-			message: "Server Error"
-		});
-	}
+    } catch (error) {
+        console.log(error);
+        res.statusCode = 500;
+        res.send({    
+            message: "Server Error"
+        });
+    }
 });
 
 // PUT /person/:socialSecurityNumber
 // // Update an existing person and return the person as JSON
 app.put("/person/:socialSecurityNumber", function (req, res) {
-	try {
+    try {
         var person = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -167,13 +167,13 @@ app.put("/person/:socialSecurityNumber", function (req, res) {
             res.json(person);
         }
 
-	} catch (err) {
-		console.log(err);
-		res.statusCode = 500;
-		res.send({	
-			message: "Server Error"
-		});
-	}
+    } catch (err) {
+        console.log(err);
+        res.statusCode = 500;
+        res.send({    
+            message: "Server Error"
+        });
+    }
 });
 
 // DELETE /person/:socialSecurityNumber
@@ -188,11 +188,11 @@ app.delete('/person/:socialSecurityNumber', function (req, res) {
         res.statusCode = 200;
         res.send();
     } catch (err) {
-		console.log(err);
-		res.statusCode = 500;
-		res.send({	
-			message: "Server Error"
-		});
+        console.log(err);
+        res.statusCode = 500;
+        res.send({    
+            message: "Server Error"
+        });
 
     }
 });
